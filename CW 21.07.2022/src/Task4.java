@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Task4 {
 
     public static void main(String[] args) {
-        int[] array1;
+        int [] array1;
         array1 = new int[5];
         for (int i = 0; i < array1.length; i++) {
             array1[i] = ((int) (Math.random() * 5) + 0);
@@ -22,7 +22,4 @@ public class Task4 {
         }
     }
 
-
-
-    }
 }

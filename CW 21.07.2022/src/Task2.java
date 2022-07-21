@@ -1,6 +1,6 @@
 import java.lang.reflect.Array;
 
-public class Array12 {
+public class Task2 {
     public static void main(String[] args) {
 
         int[] MaxIntArray = new int[12];

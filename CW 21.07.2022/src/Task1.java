@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class HowMany {
+public class Task1 {
     public static void main(String[] args) {
 
         // подсчет слов с консоли

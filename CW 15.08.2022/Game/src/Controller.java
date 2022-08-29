@@ -1,44 +1,52 @@
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 
+
 public class Controller {
-    public void navigatePlayer(Map map){
+    public void navigatePlayer(GameMap map) {
         int movie = getDirection();
-        getDirection();
-        switch (movie){
-            case (4):{
-                map.goToLeft();
-                        break;
-            }
-            case (8): {
-                map.goToUp();
-                break;
-            }
-            case (2): {
-                map.goToDown();
+        switch (movie) {
+            case (4): {
+                map.moveToTheLeft();
+                map.showMap();
                 break;
             }
             case (6): {
-                map.goToRight();
+                map.moveToTheRight();
+                map.showMap();
                 break;
             }
-            default:{
-                System.out.println("You input incorrect number");
+            case (8): {
+                map.moveUp();
+                map.showMap();
+                break;
+            }
+            case (2): {
+                map.moveDown();
+                map.showMap();
+                break;
+            }
+            default: {
+                System.out.println("Неправильный ввод");
             }
         }
+
     }
-    private int getDirection(){
-        int direction = 0;
+    int direction = 0;
+
+    private int getDirection() {
+
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     System.in
             ));
             direction = Integer.parseInt(br.readLine());
-        } catch (I0Exception | IOException ex) {
+
+
+        } catch (Exception ex) {
             System.out.println("");
+
         }
         return direction;
-        }
     }
-
+}

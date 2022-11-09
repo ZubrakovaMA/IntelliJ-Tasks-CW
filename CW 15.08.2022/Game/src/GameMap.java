@@ -1,62 +1,57 @@
 public class GameMap {
-    public char[][] map;
-    int x = 9;
-    int y = 0;
+    char[][] mapAre;
 
-    public void addPlayer(int indexX, int indexY) {
-        map[indexX][indexY] = 'P';
-    }
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_RESET = "\u001B[0m";
 
-    public void moveToTheRight() {
-        if (y + 1 > 9 || map[x][y + 1] == 'S') {
-            System.out.println("Нет хода");
-        } else {
-            map[x][y + 1] = 'P';
-            map[x][y] = '.';
-            y++;
-        }
-    }
-
-    public void moveToTheLeft() {
-        if (y - 1 < 0 || map[x][y - 1] == 'S') {
-            System.out.println("Нет хода");
-        } else {
-            map[x][y - 1] = 'P';
-            map[x][y] = '.';
-            y--;
-        }
-
-    }
-
-    public void moveUp() {
-        if (x - 1 < 0 || map[x - 1][y] == 'S') {
-            System.out.println("Нет хода");
-        } else {
-            map[x - 1][y] = 'P';
-            map[x][y] = '.';
-            x--;
-        }
-    }
-
-    public void moveDown() {
-        if (x + 1 > 9 || map[x + 1][y] == 'S') {
-            System.out.println("Нет хода");
-        } else {
-            map[x + 1][y] = 'P';
-            map[x][y] = '.';
-            x++;
-        }
-    }
-
-    public void showMap() {
-        for (char[] chars : map) {
-            for (char ch : chars) {
-                System.out.print(ch);
+    public void showGameArea(char[][] map) {
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                System.out.print(map[i][j] + " ");
             }
             System.out.println();
         }
+    }
+
+    public void moveToTheUp(Hero hero) {
+        if (hero.x - 1 < 0 || mapAre[hero.x - 1][hero.y] == 'S') {
+            System.out.println(ANSI_RED + "Нет возможности передвижения" + ANSI_RESET);
+        } else {
+            mapAre[hero.x - 1][hero.y] = 'P';
+            mapAre[hero.x][hero.y] = '.';
+            hero.x--;
+        }
+    }
+
+    public void moveToTheDown(Hero hero) {
+        if (hero.x + 1 > 9 || mapAre[hero.x + 1][hero.y] == 'S') {
+            System.out.println(ANSI_RED + "Нет возможности передвижения" + ANSI_RESET);
+        } else {
+            mapAre[hero.x + 1][hero.y] = 'P';
+            mapAre[hero.x][hero.y] = '.';
+            hero.x++;
+        }
 
     }
 
+    public void moveToTheRight(Hero hero) {
+        if (hero.y + 1 > 9 || mapAre[hero.x][hero.y + 1] == 'S') {
+            System.out.println(ANSI_RED + "Нет возможности передвижения" + ANSI_RESET);
+        } else {
+            mapAre[hero.x][hero.y + 1] = 'P';
+            mapAre[hero.x][hero.y] = '.';
+            hero.y++;
+        }
 
+    }
+
+    public void moveToTheLeft(Hero hero) {
+        if (hero.y - 1 < 0 || mapAre[hero.x][hero.y - 1] == 'S') {
+            System.out.println(ANSI_RED + "Нет возможности передвижения" + ANSI_RESET);
+        } else {
+            mapAre[hero.x][hero.y - 1] = 'P';
+            mapAre[hero.x][hero.y] = '.';
+            hero.y--;
+        }
+    }
 }

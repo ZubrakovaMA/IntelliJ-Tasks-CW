@@ -1,21 +1,21 @@
 package Enum;
 
 public enum DaysOfWeek {
-    MONDAY("Понедельник"),
-    TUESDAY("Вторник"),
-    WEDNESDAY("Среда"),
-    THURSDAY("Четверг"),
-    FRIDAY("Пятввница"),
-    SATURDAY("Суббота"),
-    SUNDAY("Воскресенье");
+    MONDAY("Monday"),
+    TUESDAY("Tuesday"),
+    WEDNESDAY("WEDNESDAY"),
+    THURSDAY("THURSDAY"),
+    FRIDAY("FRIDAY"),
+    SATURDAY("SATURDAY"),
+    SUNDAY("SUNDAY");
 
-    private String name;
-
-    DaysOfWeek(String name) {
-        this.name = name;
+    DaysOfWeek(String day) {
+        this.day = day;
     }
 
-    public String getName() {
-        return name;
+    private final String day;
+
+    String getDay() {
+        return day;
     }
 }
